@@ -1,0 +1,38 @@
+[
+  {
+    "id": "task-1785024409475-b1c918",
+    "title": "ret",
+    "description": "dedede",
+    "priority": "medium",
+    "recipient": "Amar",
+    "status": "completed",
+    "completed": true,
+    "receivedAt": "2026-07-26T00:07:03.328Z",
+    "completedAt": "2026-07-26T00:07:04.770Z",
+    "createdAt": "2026-07-26T00:06:49.475Z"
+  },
+  {
+    "id": "task-1",
+    "title": "Tentukan kebutuhan aplikasi",
+    "description": "Menjelaskan alur client-server dan data yang diproses oleh server.",
+    "priority": "high",
+    "recipient": "",
+    "status": "assigned",
+    "completed": false,
+    "receivedAt": null,
+    "completedAt": null,
+    "createdAt": "2026-07-26T00:00:00.000Z"
+  },
+  {
+    "id": "task-2",
+    "title": "Siapkan demo presentasi",
+    "description": "Pastikan UI, API, dan penyimpanan JSON berjalan stabil.",
+    "priority": "medium",
+    "recipient": "",
+    "status": "assigned",
+    "completed": false,
+    "receivedAt": null,
+    "completedAt": null,
+    "createdAt": "2026-07-26T00:00:00.000Z"
+  }
+]

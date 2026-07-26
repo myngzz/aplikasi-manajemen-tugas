@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="id">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Dashboard Server - Aplikasi Manajemen Tugas Sederhana</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Space+Grotesk:wght@500;700&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="/server.css" />
+  </head>
+  <body>
+    <div class="bg-grid"></div>
+    <main class="shell">
+      <section class="hero">
+        <div>
+          <span class="eyebrow">Server</span>
+          <h1>Dashboard Server</h1>
+          <p>
+            Server berperan sebagai perantara antara admin dan user. Tugas dikirim admin ke server,
+            lalu user mengambil dan memperbarui status tugas dari server yang sama.
+          </p>
+          <nav class="role-nav">
+            <a href="/">Halaman Admin</a>
+            <a href="/user">Halaman User</a>
+          </nav>
+          <div class="server-note">
+            <strong>Peran server</strong>
+            <p>Server menerima tugas dari admin, lalu menyalurkan dan menyinkronkan status tugas user.</p>
+          </div>
+        </div>
+        <div class="hero-actions">
+          <a class="link-btn primary" href="/">Buka halaman admin</a>
+          <button class="link-btn" id="refreshBtn" type="button">Refresh status</button>
+        </div>
+      </section>
+
+      <section class="metrics-grid">
+        <article class="metric card">
+          <span>Status API</span>
+          <strong id="apiStatus">Memuat...</strong>
+          <small id="apiHint">Menunggu respons server</small>
+        </article>
+        <article class="metric card">
+          <span>Total tugas</span>
+          <strong id="totalTasks">0</strong>
+          <small>Jumlah data di storage JSON</small>
+        </article>
+        <article class="metric card">
+          <span>Ditugaskan</span>
+          <strong id="openTasks">0</strong>
+          <small>Masih menunggu atau diterima user</small>
+        </article>
+        <article class="metric card">
+          <span>Tugas selesai</span>
+          <strong id="doneTasks">0</strong>
+          <small>Sudah ditandai selesai</small>
+        </article>
+      </section>
+
+      <section class="content-grid">
+        <article class="card panel">
+          <div class="panel-head">
+            <div>
+              <span class="eyebrow">Monitor</span>
+              <h2>Ringkasan request</h2>
+            </div>
+            <span class="pill">Express + JSON</span>
+          </div>
+          <div class="request-list">
+            <div class="request-item">
+              <span>GET /api/health</span>
+              <strong>Validasi server hidup</strong>
+            </div>
+            <div class="request-item">
+              <span>GET /api/tasks</span>
+              <strong>Mengambil data tugas dari storage JSON</strong>
+            </div>
+            <div class="request-item">
+              <span>POST /api/tasks</span>
+              <strong>Admin mengirim tugas baru</strong>
+            </div>
+            <div class="request-item">
+              <span>PATCH /api/tasks/:id</span>
+              <strong>User memperbarui status tugas</strong>
+            </div>
+            <div class="request-item">
+              <span>DELETE /api/tasks/:id</span>
+              <strong>Menghapus tugas yang salah</strong>
+            </div>
+          </div>
+        </article>
+
+        <article class="card panel">
+          <div class="panel-head">
+            <div>
+              <span class="eyebrow">Data Server</span>
+              <h2>Daftar tugas di storage</h2>
+            </div>
+            <small id="updatedAt">Belum diperbarui</small>
+          </div>
+          <div id="serverTaskList" class="task-list"></div>
+        </article>
+      </section>
+    </main>
+
+    <template id="serverTaskTemplate">
+      <article class="task-row">
+        <div>
+          <h3 class="task-title"></h3>
+          <p class="task-desc"></p>
+        </div>
+        <div class="task-meta-wrap">
+          <span class="recipient-tag"></span>
+          <span class="priority-tag"></span>
+          <span class="state-tag"></span>
+        </div>
+      </article>
+    </template>
+
+    <script src="/server-page.js"></script>
+  </body>
+</html>

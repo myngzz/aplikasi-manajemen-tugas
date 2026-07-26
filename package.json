@@ -1,0 +1,22 @@
+{
+  "name": "sistem-terdistribusi-final",
+  "version": "1.0.0",
+  "description": "Aplikasi web sederhana yang menerapkan sistem terdistribusi client-server untuk manajemen tugas.",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js",
+    "dev": "node server.js"
+  },
+  "keywords": [
+    "web",
+    "client-server",
+    "distributed-system",
+    "express",
+    "todo"
+  ],
+  "author": "",
+  "license": "MIT",
+  "dependencies": {
+    "express": "^4.21.2"
+  }
+}
